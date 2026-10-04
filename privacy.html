@@ -3,108 +3,199 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Pregnancy guide</title>
+<title>Privacy Policy — Pregnancy Guide</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FFF5F8; color: #333; }
-  .header { background: linear-gradient(135deg, #FF6B9D, #FF5A7E); padding: 40px 20px; text-align: center; }
-  .header h1 { color: white; font-size: 1.8rem; font-weight: 900; margin-bottom: 6px; }
-  .header p { color: rgba(255,255,255,0.85); font-size: 0.9rem; }
-  .container { max-width: 720px; margin: 0 auto; padding: 30px 20px 60px; }
-  .badge { background: #E8F8F0; border: 1px solid #A9DFBF; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; display: flex; gap: 12px; align-items: flex-start; }
-  .badge span { font-size: 1.5rem; }
-  .badge-text strong { color: #1E8449; display: block; margin-bottom: 4px; font-size: 1rem; }
-  .badge-text p { color: #27AE60; font-size: 0.85rem; line-height: 1.6; }
-  .card { background: white; border-radius: 16px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  .card-title { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #F0F0F0; font-size: 1rem; font-weight: 800; color: #222; }
-  .card-title .icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-  p, li { font-size: 0.88rem; color: #555; line-height: 1.8; font-weight: 500; }
-  ul { padding-left: 6px; list-style: none; }
-  ul li { display: flex; gap: 8px; margin-bottom: 6px; }
-  ul li::before { content: '✗'; color: #E63946; font-weight: 800; flex-shrink: 0; }
-  ul li.check::before { content: '•'; color: #27AE60; font-weight: 800; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 0.78rem; line-height: 1.7; }
-  strong { color: #333; }
+  :root{
+    --primary:#FF5A7E; --primary-light:#FF9EBB; --bg:#FFF8FA; --card:#FFFFFF;
+    --text-main:#2C3E50; --text-muted:#5D6D7E; --border:#F1E3E8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0; background:var(--bg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text-main); line-height:1.6;
+  }
+  .wrap{max-width:720px; margin:0 auto; padding:0 20px 60px;}
+  header{
+    background:linear-gradient(135deg,#2C3E50 0%,#3D5A73 60%,#2980B9 100%);
+    color:#fff; padding:34px 20px 28px; margin-bottom:22px;
+  }
+  header .inner{max-width:720px; margin:0 auto; display:flex; align-items:center; gap:14px;}
+  header .icon{
+    width:46px; height:46px; border-radius:14px; background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  header h1{margin:0; font-size:1.5rem; font-weight:800;}
+  header p{margin:4px 0 0; font-size:0.9rem; color:rgba(255,255,255,0.78);}
+  .banner{
+    background:linear-gradient(135deg,#E8F8F0,#D5F5E3); border:1px solid #A9DFBF;
+    border-radius:16px; padding:18px; margin-bottom:16px; display:flex; gap:14px; align-items:flex-start;
+  }
+  .banner .ic{color:#1E8449; flex-shrink:0; margin-top:2px;}
+  .banner h3{margin:0 0 6px; color:#1E8449; font-size:1rem;}
+  .banner p{margin:0; color:#27AE60; font-size:0.92rem; font-weight:500;}
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    padding:20px; margin-bottom:14px; box-shadow:0 2px 10px rgba(0,0,0,0.03);
+  }
+  .card.accent{border-left:4px solid #5B8DEF;}
+  .card.accent2{border-left:4px solid var(--primary);}
+  .card h2{
+    display:flex; align-items:center; gap:10px; font-size:1.05rem; margin:0 0 12px;
+    padding-bottom:10px; border-bottom:1px solid var(--border); color:var(--text-main);
+  }
+  .card h2 .ic{
+    width:36px; height:36px; border-radius:11px; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; background:#FFE8EE; color:var(--primary);
+  }
+  .card p{color:var(--text-muted); font-size:0.94rem; margin:0 0 10px;}
+  .card p:last-child{margin-bottom:0;}
+  .card ul{margin:10px 0; padding-left:0; list-style:none;}
+  .card ul li{
+    color:var(--text-muted); font-size:0.93rem; padding:5px 0 5px 24px; position:relative; font-weight:500;
+  }
+  .card ul.x li::before{content:"✕"; position:absolute; left:0; color:#E63946; font-weight:700;}
+  .card ul.ok li::before{content:"•"; position:absolute; left:6px; color:var(--primary); font-weight:900;}
+  .infobox{
+    background:#F3F6FF; border:1px solid #D3DEFB; border-radius:12px; padding:14px; margin-top:12px;
+  }
+  .infobox p{color:#2C3E50; margin:0; font-size:0.92rem;}
+  .linkline{
+    background:#FFF5F7; border:1px solid var(--primary-light); border-radius:12px;
+    padding:12px 14px; margin-top:10px; font-size:0.88rem; color:var(--text-muted);
+  }
+  strong{color:var(--text-main);}
+  a{color:var(--primary); text-decoration:none; font-weight:600;}
+  .contact-box{
+    background:#FAFAFA; border:1px solid var(--border); border-radius:12px; padding:14px; display:flex; gap:10px; align-items:center;
+  }
+  footer{text-align:center; color:var(--text-muted); font-size:0.82rem; padding:20px 0 10px;}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div style="font-size:2.5rem;margin-bottom:10px;">🔏</div>
-  <h1>Privacy Policy</h1>
-  <p>Pregnancy guide App · Effective: June 1, 2026</p>
-</div>
+<header>
+  <div class="inner">
+    <div class="icon">🔏</div>
+    <div>
+      <h1>Privacy Policy</h1>
+      <p>Pregnancy Guide App &middot; Effective: June 1, 2026 &middot; Last Updated: October 2026</p>
+    </div>
+  </div>
+</header>
 
-<div class="container">
+<div class="wrap">
 
-  <div class="badge">
-    <span>✅</span>
-    <div class="badge-text">
-      <strong>Your Data Stays On Your Device</strong>
-      <p>Pregnancy Companion does not collect, upload, or share any of your personal data. Everything is saved locally on your phone only.</p>
+  <div class="banner">
+    <div class="ic">✅</div>
+    <div>
+      <h3>Most Of Your Data Stays On Your Device</h3>
+      <p>Your pregnancy tracking, diary, medicines, and weight logs are saved locally and never leave your phone. Only the <strong>optional Community feature</strong> stores a small amount of data securely online, as explained below.</p>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title"><div class="icon" style="background:#EAF4FF;">📱</div>1. Information We Collect</div>
-    <p>We do <strong>not</strong> collect any personally identifiable information. The following data is stored <strong>only on your device</strong>:</p>
-    <ul style="margin-top:10px;">
-      <li class="check">Pregnancy start date &amp; due date</li>
-      <li class="check">Diary entries &amp; mood logs</li>
-      <li class="check">Medicine reminder names &amp; times</li>
-      <li class="check">Weight tracking entries</li>
-      <li class="check">Doctor notes &amp; appointments</li>
-      <li class="check">Optional PIN lock preference</li>
+    <h2><span class="ic">📱</span> 1. Information We Collect</h2>
+    <p>The following data is stored <strong>only on your device</strong> using local storage, and is never uploaded anywhere:</p>
+    <ul class="ok">
+      <li>Pregnancy start date &amp; due date</li>
+      <li>Diary entries &amp; mood logs</li>
+      <li>Medicine reminder names &amp; times</li>
+      <li>Weight tracking entries</li>
+      <li>Doctor notes &amp; appointments</li>
+      <li>Optional PIN lock preference</li>
     </ul>
+    <p>If you choose to create a Community account, we additionally collect the information listed in <strong>Section 3</strong> below.</p>
   </div>
 
   <div class="card">
-    <div class="card-title"><div class="icon" style="background:#FFF4E0;">🚫</div>2. What We Do NOT Do</div>
-    <ul>
-      <li>We do not send your data to any server</li>
-      <li>We do not sell or share data with third parties</li>
-      <li>We do not require account registration or login</li>
+    <h2><span class="ic">🚫</span> 2. What We Do NOT Do</h2>
+    <ul class="x">
+      <li>Your pregnancy dates, diary, medicines, weight, and doctor notes never leave your device</li>
+      <li>We do not sell your data to anyone, ever</li>
+      <li>Account sign-in is only needed if you choose to use Community — everything else works without any login</li>
       <li>We do not track your location</li>
       <li>We do not access your camera, microphone, or contacts</li>
-      <li>We do not use cookies or analytics trackers</li>
+      <li>We do not use cookies or third-party analytics trackers</li>
+      <li>We never show your email address to other Community members</li>
     </ul>
   </div>
 
-  <div class="card">
-    <div class="card-title"><div class="icon" style="background:#F3E4FF;">📢</div>3. Advertising (Google AdMob)</div>
-    <p>This app uses <strong>Google AdMob</strong> to display ads. AdMob may collect non-personal device information to serve relevant advertisements. This is governed by Google's Privacy Policy.</p>
-    <p style="margin-top:10px;background:#FFF5F7;border-radius:8px;padding:10px;font-size:0.82rem;">📌 Google Privacy Policy: <strong>policies.google.com/privacy</strong></p>
+  <div class="card accent">
+    <h2><span class="ic" style="background:#EEF3FF;color:#3F5FD9;">💬</span> 3. Community Feature (Optional)</h2>
+    <p>The <strong>Community</strong> tab lets you connect with other moms — sharing posts, commenting, and sending private messages. It is completely optional and only activates if you choose to sign up or log in.</p>
+    <p><strong>To use Community, we collect:</strong></p>
+    <ul class="ok">
+      <li>The display name you choose (shown to other members)</li>
+      <li>Your email address (used only for login — never shown publicly)</li>
+      <li>Posts, comments, replies, and likes you choose to share</li>
+      <li>Private direct messages you send to other members</li>
+      <li>Online / last-active status, shown to people you message</li>
+    </ul>
+    <div class="infobox">
+      <p><strong>Where it's stored:</strong> Community data is securely stored using <strong>Google Firebase</strong> (Cloud Firestore &amp; Firebase Authentication), hosted on Google Cloud. Access is restricted by security rules so that only you can edit your profile, and only the two people in a conversation can read their private messages.</p>
+    </div>
+    <div class="linkline">Firebase Privacy &amp; Security: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></div>
+    <p style="margin-top:12px;">Please avoid sharing sensitive personal or medical details in public posts, since anything you post is visible to other Community members.</p>
   </div>
 
   <div class="card">
-    <div class="card-title"><div class="icon" style="background:#E4F7FF;">🔔</div>4. Notifications</div>
-    <p>This app sends <strong>local notifications only</strong> — for medicine reminders and daily health tips. These are generated on your device and are not connected to any server. You may disable notifications at any time via Android Settings.</p>
+    <h2><span class="ic">📢</span> 4. Advertising (Google AdMob)</h2>
+    <p>This app uses <strong>Google AdMob</strong> to display advertisements. AdMob may collect non-personal device information (such as device type, OS version, and general ad interaction data) to serve relevant ads. This is governed by Google's Privacy Policy.</p>
+    <div class="linkline">Google Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></div>
+    <p style="margin-top:10px;">You may opt out of personalized ads via your device's <strong>Google Settings → Ads → Opt out of Ads Personalization</strong>.</p>
   </div>
 
   <div class="card">
-    <div class="card-title"><div class="icon" style="background:#FFF0F5;">🗑️</div>5. Data Deletion</div>
-    <p>You can delete all your data at any time via <strong>App Settings → Reset App</strong>. Uninstalling the app will also delete all data permanently.</p>
-  </div>
-
-  <div class="card" style="border-left: 4px solid #FF5A7E;">
-    <div class="card-title"><div class="icon" style="background:#FFF5F7;">⚕️</div>6. Medical Disclaimer</div>
-    <p>This app is <strong>for informational and educational purposes only</strong>. It is <strong>not</strong> a medical device and is not a substitute for professional medical advice. Always consult a licensed physician regarding any health concerns during pregnancy.</p>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><div class="icon" style="background:#E8F8F0;">👶</div>7. Children's Privacy</div>
-    <p>This app is designed for adults (18+). We do not knowingly collect data from children under 13.</p>
+    <h2><span class="ic">🔔</span> 5. Notifications</h2>
+    <p>This app sends two kinds of notifications:</p>
+    <ul class="ok">
+      <li><strong>Local reminders</strong> (medicine times, daily pregnancy tips) — generated entirely on your device, never touching any server.</li>
+      <li><strong>Push notifications</strong> (app updates, and Community activity such as a new message) — delivered via <strong>Firebase Cloud Messaging (Google)</strong>, which uses a device token solely to deliver the notification to your phone.</li>
+    </ul>
+    <p>You can disable either type at any time from your Android system Settings, or from <strong>More → Notifications</strong> inside the app.</p>
   </div>
 
   <div class="card">
-    <div class="card-title"><div class="icon" style="background:#E4F7FF;">📧</div>8. Contact Us</div>
-    <p>If you have any questions about this Privacy Policy, please contact us through the Google Play Store page of <strong>Pregnancy Companion</strong>.</p>
+    <h2><span class="ic">🗑️</span> 6. Data Deletion</h2>
+    <p>There are two separate ways to delete your data:</p>
+    <ul class="ok">
+      <li><strong>On-device data</strong> (pregnancy tracker, diary, medicines, weight, notes): go to <strong>App Settings → Reset App</strong>. Uninstalling the app also deletes this permanently.</li>
+      <li><strong>Community account</strong> (profile, posts, messages): go to <strong>Community → Account Settings → Delete Account</strong>. This is separate from resetting the app — simply uninstalling the app will <strong>not</strong> delete your Community data.</li>
+    </ul>
   </div>
 
-  <div class="footer">
-    © 2026 Pregnancy guide. All rights reserved.<br>
-    This policy is effective as of  June 1, 2026.
+  <div class="card accent2">
+    <h2><span class="ic">⚕️</span> 7. Medical Disclaimer</h2>
+    <p>This app is <strong>for informational and educational purposes only</strong>. It is <strong>not</strong> a medical device, not intended to diagnose, treat, cure, or prevent any medical condition, and is <strong>not</strong> a substitute for professional medical advice. Content shared by other users in the Community feature reflects their personal experience only and is not medical advice. Always consult a licensed physician or qualified healthcare provider regarding any health concerns during pregnancy.</p>
   </div>
+
+  <div class="card">
+    <h2><span class="ic">👶</span> 8. Children's Privacy</h2>
+    <p>This app, including the Community feature, is designed for use by adults (18+). We do not knowingly collect data from children under the age of 13. If you believe a child has created an account or provided personal information, please contact us immediately so we can remove it.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="ic">📄</span> 9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time — for example, when we add new features like Community. Any changes will be reflected on this page, along with an updated "Last Updated" date above. Continued use of the app after changes are posted constitutes your acceptance of the updated policy.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="ic">📧</span> 10. Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy, or want help deleting your Community account, please contact us at: <strong>minarhossin11@gmail.com</strong></p>
+    <div class="contact-box">
+      <span style="color:var(--primary);">📱</span>
+      <div>
+        <div style="font-weight:700; font-size:0.92rem;">Pregnancy Guide App</div>
+        <div style="color:var(--text-muted); font-size:0.88rem;">Package: com.minarlabs.pregnancy &middot; Available on Google Play Store</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Pregnancy Guide. All rights reserved.<br>
+    This policy was last updated in October 2026.
+  </footer>
 
 </div>
 </body>
